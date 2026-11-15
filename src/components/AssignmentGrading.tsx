@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AssignmentPreset, GradeResult } from '../types';
+import { getClientFallbackGrading } from '../utils/aiFallback';
 import {
   FileCode,
   Sparkles,
@@ -49,10 +50,13 @@ export const AssignmentGrading: React.FC<AssignmentGradingProps> = ({ presets })
           language: activePreset?.language || 'cpp'
         })
       });
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
       const data = await res.json();
       setGradeResult(data);
-    } catch (err) {
-      console.error(err);
+    } catch {
+      setGradeResult(getClientFallbackGrading(activePreset?.title || '游戏作业', userCode));
     } finally {
       setIsGrading(false);
     }

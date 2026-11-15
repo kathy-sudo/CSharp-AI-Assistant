@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { EngagementData, UserRole } from '../types';
+import { getClientFallbackParticipationAnalysis } from '../utils/aiFallback';
 import {
   Activity,
   TrendingUp,
@@ -34,6 +35,9 @@ export const ClassroomEngagement: React.FC<ClassroomEngagementProps> = ({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sessionData: currentData })
       });
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
       const result = await res.json();
       if (result && result.aiTeachingAdvice) {
         setCurrentData((prev) => ({
@@ -41,8 +45,12 @@ export const ClassroomEngagement: React.FC<ClassroomEngagementProps> = ({
           aiAdvice: result.aiTeachingAdvice
         }));
       }
-    } catch (err) {
-      console.error(err);
+    } catch {
+      const fallback = getClientFallbackParticipationAnalysis();
+      setCurrentData((prev) => ({
+        ...prev,
+        aiAdvice: fallback.aiTeachingAdvice
+      }));
     } finally {
       setIsAnalyzing(false);
     }

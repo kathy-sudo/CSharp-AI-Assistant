@@ -14,8 +14,8 @@ export const TEXTBOOK_METADATA = {
   title: 'Unity 游戏程序设计基础',
   publishDate: '2025年2月27日',
   press: '东北大学出版社',
-  coverImage: '/assets/aistudio/screenshot_2026-10-22_14-17-58_b7474d60.png',
-  chaoxingPortalImage: '/assets/aistudio/screenshot_2026-10-22_14-15-48_74d6252b.png',
+  coverImage: './assets/aistudio/screenshot_2026-10-22_14-17-58_b7474d60.png',
+  chaoxingPortalImage: './assets/aistudio/screenshot_2026-10-22_14-15-48_74d6252b.png',
   courseName: '游戏程序设计2025-2026-2',
   targetClass: '数媒技术24214'
 };
@@ -56,7 +56,7 @@ export const INITIAL_CHAPTERS: Chapter[] = [
       bookTitle: '《Unity 游戏程序设计基础》',
       press: '东北大学出版社 (2025.02.27)',
       publishDate: '2025年2月27日',
-      coverImage: '/assets/aistudio/screenshot_2026-10-22_14-17-58_b7474d60.png',
+      coverImage: './assets/aistudio/screenshot_2026-10-22_14-17-58_b7474d60.png',
       chapterIndex: '第1章',
       chapterTitle: 'Unity 引擎环境搭建与核心实体架构',
       pageRange: '第 1 ~ 32 页',
@@ -174,7 +174,7 @@ public class PlayerController : MonoBehaviour {
       bookTitle: '《Unity 游戏程序设计基础》',
       press: '东北大学出版社 (2025.02.27)',
       publishDate: '2025年2月27日',
-      coverImage: '/assets/aistudio/screenshot_2026-10-22_14-17-58_b7474d60.png',
+      coverImage: './assets/aistudio/screenshot_2026-10-22_14-17-58_b7474d60.png',
       chapterIndex: '第2章',
       chapterTitle: '2D 精灵切片、状态机驱动与瓦片地图架构',
       pageRange: '第 33 ~ 78 页',
@@ -303,7 +303,7 @@ void Update() {
       bookTitle: '《Unity 游戏程序设计基础》',
       press: '东北大学出版社 (2025.02.27)',
       publishDate: '2025年2月27日',
-      coverImage: '/assets/aistudio/screenshot_2026-10-22_14-17-58_b7474d60.png',
+      coverImage: './assets/aistudio/screenshot_2026-10-22_14-17-58_b7474d60.png',
       chapterIndex: '第3章',
       chapterTitle: '刚体物理模拟、视差滚动背景与 URP 2D 光照渲染',
       pageRange: '第 79 ~ 134 页',
@@ -426,7 +426,7 @@ void FixedUpdate() {
       bookTitle: '《Unity 游戏程序设计基础》',
       press: '东北大学出版社 (2025.02.27)',
       publishDate: '2025年2月27日',
-      coverImage: '/assets/aistudio/screenshot_2026-10-22_14-17-58_b7474d60.png',
+      coverImage: './assets/aistudio/screenshot_2026-10-22_14-17-58_b7474d60.png',
       chapterIndex: '第4章',
       chapterTitle: '角色状态机驱动、地图交互触发器与 NPC 巡逻追逐 AI',
       pageRange: '第 135 ~ 188 页',
@@ -517,7 +517,7 @@ void Patrol() {
       bookTitle: '《Unity 游戏程序设计基础》',
       press: '东北大学出版社 (2025.02.27)',
       publishDate: '2025年2月27日',
-      coverImage: '/assets/aistudio/screenshot_2026-10-22_14-17-58_b7474d60.png',
+      coverImage: './assets/aistudio/screenshot_2026-10-22_14-17-58_b7474d60.png',
       chapterIndex: '第5章',
       chapterTitle: 'UGUI 交互系统、自适应锚点与血条 HUD 渲染优化',
       pageRange: '第 189 ~ 224 页',
@@ -719,7 +719,7 @@ export const INITIAL_RESOURCES: LearningResource[] = [
     matchScore: 100,
     recommendReason: '本课程唯一指定教师自编教材，涵盖 2D 角色控制、状态机、Tilemap、视差分层与 UGUI 全套知识体系。',
     authorOrSource: '主讲教研团队 (东北大学出版社)',
-    url: '/assets/aistudio/screenshot_2026-10-22_14-17-58_b7474d60.png',
+    url: './assets/aistudio/screenshot_2026-10-22_14-17-58_b7474d60.png',
     difficulty: '初学者'
   },
   {
@@ -730,7 +730,7 @@ export const INITIAL_RESOURCES: LearningResource[] = [
     matchScore: 99,
     recommendReason: '包含 1.1 至 5.1 全部 13 个小节的任务点微视频、随堂测验与章节闯关考核。',
     authorOrSource: '数媒技术24214班级专属平台',
-    url: '/assets/aistudio/screenshot_2026-10-22_14-15-48_74d6252b.png',
+    url: './assets/aistudio/screenshot_2026-10-22_14-15-48_74d6252b.png',
     difficulty: '初学者'
   },
   {

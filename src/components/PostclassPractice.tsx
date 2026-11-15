@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PracticeQuestion } from '../types';
+import { getClientFallbackPracticeQuestion } from '../utils/aiFallback';
 import {
   CheckSquare,
   Sparkles,
@@ -61,6 +62,9 @@ export const PostclassPractice: React.FC<PostclassPracticeProps> = ({
           difficulty: aiGenerateDifficulty
         })
       });
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
       const data = await res.json();
       if (data && data.title) {
         const newQ: PracticeQuestion = {
@@ -81,8 +85,10 @@ export const PostclassPractice: React.FC<PostclassPracticeProps> = ({
         onAddQuestion(newQ);
         setActiveQuestionId(newQ.id);
       }
-    } catch (err) {
-      console.error(err);
+    } catch {
+      const fallbackQ = getClientFallbackPracticeQuestion(aiGenerateTopic, aiGenerateDifficulty);
+      onAddQuestion(fallbackQ);
+      setActiveQuestionId(fallbackQ.id);
     } finally {
       setIsGeneratingAiQuestion(false);
     }

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChatMessage } from '../types';
+import { getClientFallbackAnswer } from '../utils/aiFallback';
 import {
   Bot,
   Send,
@@ -80,21 +81,25 @@ export const AiAssistant: React.FC<AiAssistantProps> = ({ currentContext }) => {
         })
       });
 
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
       const data = await res.json();
       const assistantMsg: ChatMessage = {
         id: `a-${Date.now()}`,
         role: 'assistant',
-        content: data.reply || '助教正在整理答案，请稍后...',
+        content: data.reply || getClientFallbackAnswer(prompt),
         timestamp: new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })
       };
       setMessages((prev) => [...prev, assistantMsg]);
-    } catch (err: any) {
+    } catch {
+      const fallbackReply = getClientFallbackAnswer(prompt);
       setMessages((prev) => [
         ...prev,
         {
-          id: `err-${Date.now()}`,
+          id: `a-${Date.now()}`,
           role: 'assistant',
-          content: '助教连接出现了网络波动，请检查网络或重新提问。',
+          content: fallbackReply,
           timestamp: new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })
         }
       ]);

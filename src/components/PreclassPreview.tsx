@@ -84,6 +84,9 @@ export const PreclassPreview: React.FC<PreclassPreviewProps> = ({
           ]
         })
       });
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
       const data = await res.json();
       setAiHighlightSummary(data.reply || '提炼完成。');
     } catch {
