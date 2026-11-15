@@ -1,0 +1,6 @@
+{
+  "name": "游戏程序设计 AI 教学应答系统",
+  "description": "专为《游戏程序设计》高校课程打造的智能教学与学习系统，包含课前预习、课堂智能交互、课后巩固练习、学习报告分析、个性化推荐、智能批改作业、错题智能梳理、AI助教答疑及课堂参与度分析。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
